@@ -10,7 +10,7 @@ const Home = () => (
     <div id='home'>
       <section>
         <div>
-          <span className='mdi mdi-cube-outline mdi-48px'></span>
+          <span className='mdi mdi-cube-outline cube'></span>
         </div>
         <h1>Quiz App</h1>
         <div className='play-button-container'>
