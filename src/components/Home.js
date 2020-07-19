@@ -2,8 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import { ClassComponent, FunctionalComponent } from './quiz/Test'
-
 const Home = () => (
   <>
     <Helmet>
@@ -15,8 +13,6 @@ const Home = () => (
           <span className='mdi mdi-cube-outline cube'></span>
         </div>
         <h1>Quiz App</h1>
-        <ClassComponent />
-        <FunctionalComponent name="Karl Patrick" />
         <div className='play-button-container'>
           <ul>
             <li style={{ listStyle: 'none' }}>
