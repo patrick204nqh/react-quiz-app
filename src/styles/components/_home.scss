@@ -18,6 +18,64 @@
 
   .cube {
     font-size: 8rem;
-    color: $blue;
+    color: $light-blue;
+  }
+
+  h1 {
+    font-size: $lg;
+    font-weight: 300;
+    text-align: center;
+    color: $off-white;
+  }
+
+  .play-button-container {
+    width: 100%;
+    margin-top: $lg;
+  }
+
+  a.play-button {
+    background-color: $green;
+    border-radius: $button-radius;
+    color: #fff;
+    display: block;
+    cursor: pointer;
+    padding: $normal;
+    text-align: center;
+    transition: 0.3s linear all;
+  }
+
+  a.play-button:hover {
+    background-color: darken($green, 10%);
+  }
+
+  .auth-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: $lg;
+
+    .auth-buttons {
+      color: $off-white;
+      cursor: pointer;
+      border-radius: $button-radius;
+      padding: $normal 0;
+      text-align: center;
+      width: 45%;
+      transition: 0.3s linear all;
+    }
+
+    #signup-button {
+      background-color: $blue;
+    }
+    #signup-button:hover {
+      background-color: darken($blue, 10%);
+    }
+
+    #login-button {
+      background-color: $red;
+    }
+    #login-button:hover {
+      background-color: darken($red, 10%);
+    }
   }
 }
