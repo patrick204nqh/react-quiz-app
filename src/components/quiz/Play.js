@@ -29,11 +29,13 @@ class Play extends React.Component {
       previousRandomNumbers: [],
       time: {}
     }
+    this.interval = null
   }
 
   componentDidMount() {
     const { questions, currentQuestion, nextQuestion, previousQuestion } = this.state
     this.displayQuestions(questions, currentQuestion, nextQuestion, previousQuestion);
+    this.startTimer();
   }
 
   displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
@@ -236,8 +238,39 @@ class Play extends React.Component {
     }
   }
 
+  startTimer = () => {
+    const countDownTime = Date.now() + 180000;
+    this.interval = setInterval(() => {
+      const now = new Date();
+      const distance = countDownTime - now;
+
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        clearInterval(this.interval);
+        this.setState({
+          time: {
+            minutes: 0,
+            seconds: 0
+          }
+        }, () => {
+          alert('Quiz has ended!');
+          this.props.history.push('/');
+        })
+      } else {
+        this.setState({
+          time: {
+            minutes,
+            seconds
+          }
+        })
+      }
+    }, 1000);
+  }
+
   render() {
-    const { currentQuestion, currentQuestionIndex, numberOfQuestions, hints, fiftyFifty } = this.state;
+    const { currentQuestion, currentQuestionIndex, numberOfQuestions, hints, fiftyFifty, time } = this.state;
     return (
       <>
         <Helmet><title>Quiz Page</title></Helmet>
@@ -261,7 +294,7 @@ class Play extends React.Component {
           <div>
             <p className="page-time">
               <span className="left">{currentQuestionIndex + 1} of {numberOfQuestions}</span>
-              <span className="right">2:15 <span className="mdi mdi-clock-outline mdi-24px"></span></span>
+              <span className="right">{time.minutes}:{time.seconds}{' '}<span className="mdi mdi-clock-outline mdi-24px"></span></span>
             </p>
           </div>
           <h5>{currentQuestion.question}</h5>
