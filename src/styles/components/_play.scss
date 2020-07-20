@@ -35,25 +35,41 @@
     font-weight: 300;
   }
 
+  // .options-container {
+  //   display: inline-block;
+  //   width: 50%;
+  // }
+
+  // .option {
+  //   background-color: $blue;
+  //   border-radius: $button-radius;
+  //   color: $white;
+  //   cursor: pointer;
+  //   margin: $md auto;
+  //   padding: $normal;
+  //   transition: 0.3s linear all;
+  //   text-align: center;
+  //   width: 90%;
+  // }
+
   .options-container {
-    display: inline-block;
-    width: 50%;
-  }
+    display: grid;
 
-  .option {
-    background-color: $blue;
-    border-radius: $button-radius;
-    color: $white;
-    cursor: pointer;
-    margin: $md auto;
-    padding: $normal;
-    transition: 0.3s linear all;
-    text-align: center;
-    width: 90%;
-  }
+    .option {
+      background-color: $blue;
+      border-radius: $button-radius;
+      color: $white;
+      cursor: pointer;
+      margin: $md auto;
+      padding: $normal;
+      transition: 0.3s linear all;
+      text-align: center;
+      width: 70%;
+    }
 
-  .option:hover {
-    background-color: darken($blue, 20%);
+    .option:hover {
+      background-color: darken($blue, 20%);
+    }
   }
 }
 
@@ -111,4 +127,16 @@
   margin-top: 10px;
   color: #808080;
   font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .options-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 700px) {
+  .options-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
