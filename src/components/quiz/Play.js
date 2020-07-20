@@ -323,7 +323,7 @@ class Play extends React.Component {
     };
     console.log(playerStats);
     setTimeout(() => {
-      this.props.history.push('/');
+      this.props.history.push('/play/summary', playerStats);
     }, 1000);
   }
 
