@@ -1,0 +1,114 @@
+.questions {
+  background-color: $off-white;
+  border-left: 5px solid $blue;
+  width: 80%;
+  margin: $lg auto 0 auto;
+  padding: $sm $md;
+
+  h2 {
+    margin: 20px auto;
+    text-transform: uppercase;
+    color: $blue;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px;
+    text-align: center;
+  }
+
+  .lifeline-container {
+    display: flex;
+    justify-content: space-between;
+
+    span.mdi {
+      color: $green;
+    }
+  }
+
+  .lifeline {
+    position: relative;
+    top: -3px;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+    margin-bottom: $sm;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  .options-container {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .option {
+    background-color: $blue;
+    border-radius: $button-radius;
+    color: $white;
+    cursor: pointer;
+    margin: $md auto;
+    padding: $normal;
+    transition: 0.3s linear all;
+    text-align: center;
+    width: 90%;
+  }
+
+  .option:hover {
+    background-color: darken($blue, 20%);
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 auto $sm auto;
+  padding: $md;
+  width: 80%;
+
+  button {
+    border: none;
+    color: $off-white;
+    cursor: pointer;
+    font-family: $quicksand;
+    margin-right: $md;
+    padding: $xs $sm;
+  }
+
+  button:first-child {
+    background-color: darken($blue, 10%);
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+  }
+
+  button:first-child:hover {
+    background-color: darken($blue, 20%);
+  }
+
+  button:nth-child(2) {
+    background-color: darken($green, 10%);
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+  }
+
+  button:nth-child(2):hover {
+    background-color: darken($green, 20%);
+  }
+
+  button:nth-child(3) {
+    background-color: darken($red, 10%);
+    box-shadow: $shadow;
+    transition: 0.2s linear all;
+  }
+
+  button:nth-child(3):hover {
+    background-color: darken($red, 20%);
+  }
+}
+
+// My customs
+.page-time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #808080;
+  font-size: 0.9rem;
+}
