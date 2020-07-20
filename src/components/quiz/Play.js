@@ -316,8 +316,8 @@ class Play extends React.Component {
       score: state.score,
       numberOfQuestions: state.numberOfQuestions,
       numberOfAnsweredQuestions: state.numberOfAnsweredQuestions,
-      correctAnswer: state.correctAnswers,
-      wrongAnswer: state.wrongAnswers,
+      correctAnswers: state.correctAnswers,
+      wrongAnswers: state.wrongAnswers,
       fiftyFiftyUsed: 2 - state.fiftyFifty,
       hintsUsed: 5 - state.hints
     };
