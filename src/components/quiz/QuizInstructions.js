@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -23,15 +23,15 @@ const QuizInstructions = () => (
         </li>
         <li>
           Each game has 2 lifelines namely:
-          <ul id='sublist'>
+          <ul id='sublist' style={{ paddingLeft: '15px' }}>
             <li>2 50-50 chances</li>
             <li>5 Hints</li>
           </ul>
         </li>
         <li>
           Selecting a 50-50 lifeline by clicking the icon
-          <span className='mdi mdi-set-center mdi-24px lifeline-icon'></span>
-          will remove 2 wrong answers, leaving two wrong answers and one correct
+           <span className='mdi mdi-set-center mdi-24px lifeline-icon' style={{ padding: '0 5px' }}></span>
+           will remove 2 wrong answers, leaving two wrong answers and one correct
           answer. You can use as many hints as possible an a single question.abs
         </li>
         <li>
@@ -41,7 +41,7 @@ const QuizInstructions = () => (
         <li>The timer start as soon as the game loads.</li>
         <li>Let's do this if you think you've got what it takes?</li>
       </ul>
-      <div>
+      <div className="link-bar">
         <span className='left'>
           <Link to='/'>No take me back</Link>
         </span>

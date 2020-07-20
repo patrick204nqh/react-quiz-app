@@ -2,6 +2,7 @@
   max-width: 1024px;
   margin: auto;
 }
+
 .instructions {
   border: 1px solid darken($off-white, 10%);
   border-radius: 5px;
@@ -9,10 +10,15 @@
   margin-bottom: $lg;
   padding: $lg $sm;
 
+  p {
+    font-weight: 600;
+  }
+
   h1 {
     color: $off-black;
     font-size: $md;
     text-align: center;
+    margin-bottom: 20px;
   }
 
   .lifeline {
@@ -29,6 +35,23 @@
     padding-left: 30px;
     margin-top: 10px;
     margin-bottom: 15px;
+
+    li {
+      margin: 5px 0;
+    }
+  }
+}
+
+.link-bar {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    margin-top: 5px;
+
+    a {
+      color: $blue;
+    }
   }
 }
 
