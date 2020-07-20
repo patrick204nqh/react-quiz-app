@@ -48,33 +48,44 @@ class QuizSummary extends React.Component {
     }
 
     if (state) {
-      // console.log(state);
       stats = (
-        <>
-          <div>
+        <div className="summary-container">
+          <div className="icon">
             <span className="mdi mdi-check-circle-outline success-icon"></span>
           </div>
           <h1>Quiz has ended</h1>
+          <h4>{remask}</h4>
           <div className="container">
-            <h4>{remask}</h4>
             <h2>Your Score: {state.score.toFixed(0)}&#37;</h2>
-            <span className="stat left">Total number of questions: </span>
-            <span className="right">{state.numberOfQuestions}</span><br />
+            <div>
+              <span className="stat left">Total number of questions: </span>
+              <span className="right"> {state.numberOfQuestions}</span><br />
+            </div>
 
-            <span className="stat left">Number of attempted questions: </span>
-            <span className="right">{state.numberOfAnsweredQuestions}</span><br />
+            <div>
+              <span className="stat left">Number of attempted questions: </span>
+              <span className="right"> {state.numberOfAnsweredQuestions}</span><br />
+            </div>
 
-            <span className="stat left">Number of Correct Answers: </span>
-            <span className="right">{state.correctAnswers}</span><br />
+            <div>
+              <span className="stat left">Number of Correct Answers: </span>
+              <span className="right"> {state.correctAnswers}</span><br />
+            </div>
 
-            <span className="stat left">Number of Wrong Answers: </span>
-            <span className="right">{state.wrongAnswers}</span><br />
+            <div>
+              <span className="stat left">Number of Wrong Answers: </span>
+              <span className="right"> {state.wrongAnswers}</span><br />
+            </div>
 
-            <span className="stat left">Hints Used: </span>
-            <span className="right">{state.hintsUsed}</span><br />
+            <div>
+              <span className="stat left">Hints Used: </span>
+              <span className="right"> {state.hintsUsed}</span><br />
+            </div>
 
-            <span className="stat left">50-50 Used: </span>
-            <span className="right">{state.fiftyFiftyUsed}</span>
+            <div>
+              <span className="stat left">50-50 Used: </span>
+              <span className="right"> {state.fiftyFiftyUsed}</span>
+            </div>
           </div>
           <section>
             <ul>
@@ -86,7 +97,7 @@ class QuizSummary extends React.Component {
               </li>
             </ul>
           </section>
-        </>
+        </div>
       )
     } else {
       stats = (
