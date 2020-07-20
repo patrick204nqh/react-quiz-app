@@ -68,7 +68,9 @@ class Play extends React.Component {
       correctAnswers: prevState.correctAnswers + 1,
       currentQuestionIndex: prevState.currentQuestionIndex + 1,
       numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
-    }))
+    }), () => {
+      this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+    })
   }
 
   wrongAnswer = () => {
@@ -82,7 +84,9 @@ class Play extends React.Component {
       wrongAnswers: prevState.wrongAnswers + 1,
       currentQuestionIndex: prevState.currentQuestionIndex + 1,
       numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
-    }))
+    }), () => {
+      this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+    })
   }
 
   render() {
@@ -107,20 +111,12 @@ class Play extends React.Component {
             </p>
           </div>
           <h5>{currentQuestion.question}</h5>
-          {/* <div className="options-container">
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
-          </div>
-          <div className="options-container">
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionC}</p>
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>
-          </div> */}
 
           <div className="options-container">
             <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
-            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionA}</p>
+            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionB}</p>
+            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionC}</p>
+            <p onClick={this.handleOptionClick} className="option">{currentQuestion.optionD}</p>
           </div>
 
           <div className="button-container">
