@@ -7,3 +7,27 @@
 body {
   font-family: $quicksand;
 }
+
+.toast-invalid {
+  background-color: $error-text !important;
+  border-radius: 5px !important;
+  color: $off-white !important;
+  width: 200px;
+  padding: 20px 10px;
+  margin: 0 auto;
+  margin-bottom: 0vh;
+  text-align: center;
+  transform: translateY(100%);
+}
+
+.toast-valid {
+  background-color: $success-text !important;
+  border-radius: 5px !important;
+  color: $off-white !important;
+  width: 200px;
+  padding: 20px 10px;
+  margin: 0 auto;
+  margin-bottom: 0vh;
+  text-align: center;
+  transform: translateY(100%);
+}
