@@ -67,8 +67,48 @@ class Play extends React.Component {
     }
   }
 
-  handleButtonClick = () => {
+  handleNextButtonClick = () => {
+    if (this.state.nextQuestion !== undefined) {
+      this.setState(prevState => ({
+        currentQuestionIndex: prevState.currentQuestionIndex + 1
+      }), () => {
+        this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+      })
+    }
+  }
+
+  handlePreviousButtonClick = () => {
+    if (this.state.previousQuestion !== undefined) {
+      this.setState(prevState => ({
+        currentQuestionIndex: prevState.currentQuestionIndex - 1
+      }), () => {
+        this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+      })
+    }
+  }
+
+  handleQuitButtonClick = () => {
     this.playButtonSound();
+    if (window.confirm('Are you sure you want to quit?')) {
+      this.props.history.push('/');
+    }
+  }
+
+  handleButtonClick = (e) => {
+    this.playButtonSound();
+    switch (e.target.id) {
+      case 'next-button':
+        this.handleNextButtonClick();
+        break;
+      case 'previous-button':
+        this.handlePreviousButtonClick();
+        break;
+      case 'quit-button':
+        this.handleQuitButtonClick();
+        break;
+      default:
+        break;
+    }
   }
 
   playButtonSound = () => {
@@ -143,9 +183,9 @@ class Play extends React.Component {
           </div>
 
           <div className="button-container">
-            <button onClick={this.handleButtonClick}>Previous</button>
-            <button onClick={this.handleButtonClick}>Next</button>
-            <button onClick={this.handleButtonClick}>Quit</button>
+            <button id="previous-button" onClick={this.handleButtonClick}>Previous</button>
+            <button id="next-button" onClick={this.handleButtonClick}>Next</button>
+            <button id="quit-button" onClick={this.handleButtonClick}>Quit</button>
           </div>
         </div>
       </>
