@@ -32,7 +32,10 @@ class Play extends React.Component {
       previousRandomNumbers: [],
       time: {}
     }
-    this.interval = null
+    this.interval = null;
+    this.correctSound = React.createRef();
+    this.wrongSound = React.createRef();
+    this.buttonSound = React.createRef();
   }
 
   componentDidMount() {
@@ -70,12 +73,12 @@ class Play extends React.Component {
   handleOptionClick = (e) => {
     if (e.target.innerHTML === this.state.answer) {
       setTimeout(() => {
-        document.getElementById('correct-sound').play();
+        this.correctSound.current.play();
       }, 200);
       this.correctAnswer();
     } else {
       setTimeout(() => {
-        document.getElementById('wrong-sound').play();
+        this.wrongSound.current.play();
       }, 200);
       this.wrongAnswer();
     }
@@ -126,7 +129,7 @@ class Play extends React.Component {
   }
 
   playButtonSound = () => {
-    document.getElementById('button-sound').play();
+    this.buttonSound.current.play();
   }
 
   correctAnswer = () => {
@@ -330,9 +333,9 @@ class Play extends React.Component {
       <>
         <Helmet><title>Quiz Page</title></Helmet>
         <>
-          <audio id="correct-sound" src={correctNotification}></audio>
-          <audio id="wrong-sound" src={wrongNotification}></audio>
-          <audio id="button-sound" src={buttonSound}></audio>
+          <audio ref={this.correctSound} src={correctNotification}></audio>
+          <audio ref={this.wrongSound} src={wrongNotification}></audio>
+          <audio ref={this.buttonSound} src={buttonSound}></audio>
         </>
         <div className="questions">
           <h2>Quiz Mode</h2>
