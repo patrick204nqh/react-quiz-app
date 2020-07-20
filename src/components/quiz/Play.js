@@ -41,6 +41,10 @@ class Play extends React.Component {
     this.startTimer();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   displayQuestions = (questions = this.state.questions, currentQuestion, nextQuestion, previousQuestion) => {
     let { currentQuestionIndex } = this.state;
     if (!isEmpty(this.state.questions)) {
@@ -137,7 +141,11 @@ class Play extends React.Component {
       currentQuestionIndex: prevState.currentQuestionIndex + 1,
       numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
     }), () => {
-      this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+      if (this.state.nextQuestion === undefined) {
+        this.endGame();
+      } else {
+        this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+      }
     })
   }
 
@@ -153,7 +161,11 @@ class Play extends React.Component {
       currentQuestionIndex: prevState.currentQuestionIndex + 1,
       numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
     }), () => {
-      this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+      if (this.state.nextQuestion === undefined) {
+        this.endGame();
+      } else {
+        this.displayQuestions(this.state.questions, this.state.currentQuestion, this.state.nextQuestion, this.state.previousQuestion);
+      }
     })
   }
 
@@ -259,8 +271,7 @@ class Play extends React.Component {
             seconds: 0
           }
         }, () => {
-          alert('Quiz has ended!');
-          this.props.history.push('/');
+          this.endGame();
         })
       } else {
         this.setState({
@@ -293,6 +304,24 @@ class Play extends React.Component {
         nextButtonDisabled: false
       })
     }
+  }
+
+  endGame = () => {
+    alert('Qiz had ended!');
+    const { state } = this;
+    const playerStats = {
+      score: state.score,
+      numberOfQuestions: state.numberOfQuestions,
+      numberOfAnsweredQuestions: state.numberOfAnsweredQuestions,
+      correctAnswer: state.correctAnswers,
+      wrongAnswer: state.wrongAnswers,
+      fiftyFiftyUsed: 2 - state.fiftyFifty,
+      hintsUsed: 5 - state.hints
+    };
+    console.log(playerStats);
+    setTimeout(() => {
+      this.props.history.push('/');
+    }, 1000);
   }
 
   render() {
