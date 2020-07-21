@@ -74,52 +74,51 @@
       margin: 20px 0;
     }
   }
-}
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin: $sm auto;
+    padding: $md;
+    width: 80%;
 
-.button-container {
-  display: flex;
-  justify-content: flex-start;
-  margin: 0 auto $sm auto;
-  padding: $md;
-  width: 80%;
+    button {
+      border: none;
+      color: $off-white;
+      cursor: pointer;
+      font-family: $quicksand;
+      margin-right: $md;
+      padding: $xs $sm;
+    }
 
-  button {
-    border: none;
-    color: $off-white;
-    cursor: pointer;
-    font-family: $quicksand;
-    margin-right: $md;
-    padding: $xs $sm;
-  }
+    button:first-child {
+      background-color: darken($blue, 10%);
+      box-shadow: $shadow;
+      transition: 0.2s linear all;
+    }
 
-  button:first-child {
-    background-color: darken($blue, 10%);
-    box-shadow: $shadow;
-    transition: 0.2s linear all;
-  }
+    button:first-child:hover {
+      background-color: darken($blue, 20%);
+    }
 
-  button:first-child:hover {
-    background-color: darken($blue, 20%);
-  }
+    button:nth-child(2) {
+      background-color: darken($green, 10%);
+      box-shadow: $shadow;
+      transition: 0.2s linear all;
+    }
 
-  button:nth-child(2) {
-    background-color: darken($green, 10%);
-    box-shadow: $shadow;
-    transition: 0.2s linear all;
-  }
+    button:nth-child(2):hover {
+      background-color: darken($green, 20%);
+    }
 
-  button:nth-child(2):hover {
-    background-color: darken($green, 20%);
-  }
+    button:nth-child(3) {
+      background-color: darken($red, 10%);
+      box-shadow: $shadow;
+      transition: 0.2s linear all;
+    }
 
-  button:nth-child(3) {
-    background-color: darken($red, 10%);
-    box-shadow: $shadow;
-    transition: 0.2s linear all;
-  }
-
-  button:nth-child(3):hover {
-    background-color: darken($red, 20%);
+    button:nth-child(3):hover {
+      background-color: darken($red, 20%);
+    }
   }
 }
 
