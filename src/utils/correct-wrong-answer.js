@@ -12,10 +12,11 @@ const correctAnswer = (context) => {
     score: prevState.score + 1,
     correctAnswers: prevState.correctAnswers + 1,
     currentQuestionIndex: prevState.currentQuestionIndex + 1,
-    numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
+    numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1,
+    indexOfAnsweredQuestions: prevState.indexOfAnsweredQuestions.concat(prevState.currentQuestionIndex)
   }), () => {
     if (context.state.nextQuestion === undefined) {
-      context.endGame();
+      endGame(context);
     } else {
       displayQuestions(context.state.questions, context.state.currentQuestion, context.state.nextQuestion, context.state.previousQuestion, context);
     }
@@ -32,7 +33,8 @@ const wrongAnswer = (context) => {
   context.setState(prevState => ({
     wrongAnswers: prevState.wrongAnswers + 1,
     currentQuestionIndex: prevState.currentQuestionIndex + 1,
-    numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1
+    numberOfAnsweredQuestions: prevState.numberOfAnsweredQuestions + 1,
+    indexOfAnsweredQuestions: prevState.indexOfAnsweredQuestions.concat(prevState.currentQuestionIndex)
   }), () => {
     if (context.state.nextQuestion === undefined) {
       endGame(context);

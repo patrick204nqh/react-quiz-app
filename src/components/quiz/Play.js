@@ -21,6 +21,7 @@ class Play extends React.Component {
       nextQuestion: {},
       previousQuestion: {},
       answer: '',
+      indexOfAnsweredQuestions: [],
       numberOfQuestions: 0,
       numberOfAnsweredQuestions: 0,
       currentQuestionIndex: 0,
@@ -52,7 +53,15 @@ class Play extends React.Component {
   }
 
   render() {
-    const { currentQuestion, currentQuestionIndex, numberOfQuestions, hints, fiftyFifty, time } = this.state;
+    const {
+      currentQuestion,
+      currentQuestionIndex,
+      numberOfQuestions,
+      hints,
+      fiftyFifty,
+      time,
+      indexOfAnsweredQuestions
+    } = this.state;
     return (
       <>
         <Helmet><title>Quiz Page</title></Helmet>
@@ -80,13 +89,18 @@ class Play extends React.Component {
             </p>
           </div>
           <h5>{currentQuestion.question}</h5>
-
-          <div className="options-container">
-            <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionA}</p>
-            <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionB}</p>
-            <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionC}</p>
-            <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionD}</p>
-          </div>
+          {
+            !indexOfAnsweredQuestions.includes(currentQuestionIndex) ?
+              (<div className="options-container">
+                <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionA}</p>
+                <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionB}</p>
+                <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionC}</p>
+                <p onClick={(e) => handleOptionClick(e, this)} className="option">{currentQuestion.optionD}</p>
+              </div>) :
+              (<div className="answered-container">
+                <p className="answered">You had answered this question</p>
+              </div>)
+          }
 
           <div className="button-container">
             <button

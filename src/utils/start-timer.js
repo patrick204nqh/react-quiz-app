@@ -1,3 +1,5 @@
+import { endGame } from './end-game'
+
 export const startTimer = (context) => {
   const countDownTime = Date.now() + 180000;
   context.interval = setInterval(() => {
@@ -15,7 +17,7 @@ export const startTimer = (context) => {
           seconds: 0
         }
       }, () => {
-        context.endGame();
+        endGame(context);
       })
     } else {
       context.setState({

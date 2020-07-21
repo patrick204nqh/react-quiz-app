@@ -51,13 +51,27 @@
       cursor: pointer;
       margin: $md auto;
       padding: $normal;
-      transition: 0.3s linear all;
+      // transition: 0.3s linear all;
       text-align: center;
       width: 70%;
     }
 
     .option:hover {
       background-color: darken($blue, 20%);
+    }
+  }
+
+  .answered-container {
+    padding: 50px 10px;
+    border: 1px solid $yellow;
+    border-radius: 10px;
+
+    .answered {
+      color: $yellow;
+      display: block;
+      text-align: center;
+      font-size: 40px;
+      margin: 20px 0;
     }
   }
 }
